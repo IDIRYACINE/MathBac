@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/navigation" app:startDestination="@id/units">
+
+    <fragment android:id="@+id/units" android:name="com.BacIdir.math.Exo.Units" android:label="Units"/>
+    <fragment android:id="@+id/graphs" android:name="com.BacIdir.math.Exo.Graphs" android:label="Graphs"/>
+    <fragment android:id="@+id/exoQuest" android:name="com.BacIdir.math.Exo.ExoQuest" android:label="ExoQuest"/>
+</navigation>

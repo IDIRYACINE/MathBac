@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Math</string>
+
+    <!-- Titles -->
+    <string name="Home">الرئيسية</string>
+    <string name="Dashboard">تقييمك</string>
+    <string name="Exo">التمرين</string>
+    <string name="Start">ابدء</string>
+    <string name="Stop">توقف</string>
+    <string name="Hint">ملخص الوحدة</string>
+    <string name="Submit">تقديم</string>
+
+    <!-- Content -->
+    <string name="ExoMark">كيف تقيم نفسك ؟</string>
+
+
+    <!-- Font -->
+    <string name="roboto_regular">sans-serif</string>
+    <string name="roboto_light">sans-serif-light</string>
+    <string name="roboto_condensed">sans-serif-condensed</string>
+    <string name="roboto_thin">sans-serif-thin</string>
+    <string name="roboto_medium">sans-serif-medium</string>
+
+    <string name="number_picker_formatter">%02d</string>
+
+</resources>

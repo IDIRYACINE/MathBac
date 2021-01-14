@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/exo_nav" app:startDestination="@id/exoN">
+
+    <fragment android:id="@+id/exoN" android:name="com.BacIdir.math.Exo.Exo" android:label="Exo">
+        <action android:id="@+id/action_exoN_to_hintN" app:destination="@id/hintN" app:popUpTo="@id/hintN"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment android:id="@+id/hintN" android:name="com.BacIdir.math.Exo.Hint" android:label="Hint">
+        <action android:id="@+id/action_hintN_to_exoN" app:destination="@id/exoN" app:popUpTo="@id/exoN"
+                app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
