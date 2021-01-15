@@ -50,7 +50,7 @@ public class UnitsAdpter extends BaseAdapter implements View.OnClickListener{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         int nRows = objects.length % nColumns == 0 ? objects.length /nColumns : (objects.length+1) / nColumns;
-        int height = (parent.getHeight() - 35 ) / nRows;
+        int height = (parent.getHeight() - 40 ) / nRows;
 
         convertView = inflater.inflate(R.layout.blueprint_unit,parent,false);
         convertView.getLayoutParams().height = height;

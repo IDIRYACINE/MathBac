@@ -2,7 +2,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="@string/Start" android:id="@+id/Start" app:showAsAction="always"
-          android:icon="@android:drawable/ic_media_play"/>
+          android:icon="@drawable/ic_exo_start"/>
     <item android:title="@string/Hint" android:id="@+id/Hint" app:showAsAction="always"
-          android:icon="@android:drawable/ic_menu_help"/>
+          android:icon="@drawable/ic_hint"/>
 </menu>

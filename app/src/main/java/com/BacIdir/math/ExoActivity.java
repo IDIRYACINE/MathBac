@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
 import com.BacIdir.math.Controllers.ExoMark;
 import com.BacIdir.math.Controllers.ExoTimer;
@@ -79,7 +80,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
         if(!exo_started){
 
             exo_started = true ;
-            Item.setIcon(R.drawable.exo_stop);
+            Item.setIcon(R.drawable.ic_exo_stop);
             Item.setTitle(R.string.Stop);
             // get the value for count down from numpicker
             String c = Registre.Lmin[mins.getValue()-1];
@@ -98,7 +99,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
         }
         else {
             exo_started = false ;
-            Item.setIcon(R.drawable.exo_start);
+            Item.setIcon(R.drawable.ic_exo_start);
             Item.setTitle(R.string.Start);
 
             timer.cancel();
@@ -120,19 +121,17 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
 
         if(!exo_hint){
             exo_hint = true ;
-            Item.setIcon(R.drawable.exo_stop);
-            Item.setTitle(R.string.Hint);
-            controller.navigate(R.id.action_exoN_to_hintN);
+            Item.setIcon(R.drawable.ic_hint);
+            Item.setTitle(R.string.Exo);
+            controller.navigate(R.id.hintN,null,new  NavOptions.Builder().setPopUpTo(R.id.hintN,true).build());
 
 
         }
         else {
             exo_hint = false ;
-            Item.setIcon(R.drawable.exo_start);
-            Item.setTitle(R.string.Exo);
-            controller.navigate(R.id.action_hintN_to_exoN);
-
-
+            Item.setIcon(R.drawable.ic_exo);
+            Item.setTitle(R.string.Hint);
+            controller.navigate(R.id.exoN,null,new  NavOptions.Builder().setPopUpTo(R.id.exoN,true).build());
 
         }
 

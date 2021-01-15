@@ -30,7 +30,7 @@ public class Graphs extends Fragment {
         if ( savedInstanceState == null) {
             root = inflater.inflate(R.layout.fragment_graphs,container,false);
             // get data
-            Dunit = new String[]{"الدوال", "المتتاليات ", "الاحتمالات", "الاعداد المركبة ", "الهندسة في الفضاء "};
+            Dunit = new String[] {"الدوال", "المتتاليات ", "الاعداد المركبة ", "الهندسة في الفضاء","الاحتمالات"};//{"الدوال", "المتتاليات ", "الاحتمالات", "الاعداد المركبة ", "الهندسة في الفضاء "};
             Marks = new float[5];
             getData();
 

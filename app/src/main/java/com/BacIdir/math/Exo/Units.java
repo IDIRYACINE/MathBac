@@ -39,7 +39,7 @@ public class Units extends Fragment {
         NavController controller = host.getNavController();
 
 
-        String[] Units = {"الدوال", "المتتاليات ", "الاحتمالات", "الاعداد المركبة ", "الهندسة في الفضاء "};
+        String[] Units = {"الدوال", "المتتاليات ", "الاعداد المركبة ", "الهندسة في الفضاء","الاحتمالات"};
 
         GridView gridView = view.findViewById(R.id.grid_units);
         UnitsAdpter adpter = new UnitsAdpter(getActivity(),controller,Units,2 );
