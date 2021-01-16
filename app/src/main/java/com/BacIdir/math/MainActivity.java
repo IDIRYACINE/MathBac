@@ -10,12 +10,25 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.google.android.gms.ads.MobileAds.initialize;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private NavController controller ;
     private FragmentManager fm ;
+    private InterstitialAd mInterstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +44,20 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
             BottomNavigationView  bottomNavigationView = findViewById(R.id.bottom_bar);
             bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+
+            initialize(this, new OnInitializationCompleteListener() {
+                @Override
+                public void onInitializationComplete(InitializationStatus initializationStatus) {
+                }
+            });
+
+
+
+
+
+
+
 
 
         }
@@ -50,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         switch (Item.getItemId()){
             case R.id.Home :
-                    controller.navigate(R.id.units,null,new  NavOptions.Builder().setPopUpTo(R.id.units,true).build());
+                controller.navigate(R.id.units,null,new  NavOptions.Builder().setPopUpTo(R.id.units,true).build());
+
                 return true ;
 
             case R.id.Dashboard :

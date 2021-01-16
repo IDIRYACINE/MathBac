@@ -25,10 +25,10 @@ public class Exo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-
+        root = inflater.inflate(R.layout.fragment_exo,container,false);
         if ( savedInstanceState == null) {
             data = Registre.Units[Registre.Unit];
-            root = inflater.inflate(R.layout.fragment_exo,container,false);
+
 
             Gesture gesture = new Gesture();
             gestureDetector = new GestureDetector(getActivity(),gesture);
