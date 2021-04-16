@@ -27,9 +27,6 @@ public class Database extends SQLiteOpenHelper {
     private static final String SQL_INSERT_ENTRIES =
             "CREATE TABLE math (exo int , solution TEXT)";
 
-
-
-
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         mContext = context ;
@@ -86,14 +83,33 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public int UpdateData (String Table,ContentValues values , int exo){
-
         return myDataBase.update(Table,values,"exo = "+ exo ,null);
-
     }
 
     public Cursor FetchData(String Table , String[] Columns){
         Cursor cursor = myDataBase.query(Table,Columns,null,null,null,null,null);
         return cursor ;
+    }
+
+    public void SetGraphData(float[] Marks){
+        int position = 0 ;
+        float mark = 0;
+
+
+        for (int i = 0 ; i < T.length ; i++){
+            Cursor cursor = FetchData(T[i],new String[]{"mark"}) ;
+            if (cursor.getCount()>0){
+                while (cursor.moveToPosition(position)){
+                    mark += cursor.getInt(0);
+                    position += 1 ;
+                }
+                mark = mark / position ;
+                Marks[i] = mark ;
+                position = 0;
+                mark = 0 ;
+            }
+
+        }
     }
 
 

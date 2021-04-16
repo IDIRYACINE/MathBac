@@ -14,7 +14,7 @@ import com.BacIdir.math.R;
 
 public class QuestAdapter extends BaseAdapter implements View.OnClickListener {
 
-    private Context context;
+    private final Context context;
     private final LayoutInflater inflater;
     private final int nQuest;
     private final int nColumns;
@@ -57,18 +57,14 @@ public class QuestAdapter extends BaseAdapter implements View.OnClickListener {
         title.setText(Integer.toString(position));
         title.setTag(position);
         title.setOnClickListener(this);
-
-
-
         return convertView;
     }
 
 
     @Override
     public void onClick(View v) {
-        TextView exo = (TextView) v;
 
-        Registre.Exo = Integer.parseInt((String) exo.getText());
+        Registre.Exo = (Integer) v.getTag()  ;
 
         Intent intent = new Intent(context, ExoActivity.class);
         context.startActivity(intent);

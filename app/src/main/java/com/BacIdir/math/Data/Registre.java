@@ -7,9 +7,11 @@ public abstract class Registre {
     public static int Exo = 0;
 
 
+
     public static String [] Lmin = {"10","15","20","25","30","35","40","45","50","55","60"};
-    public static String [] Rmin = {"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30",
-            "31", "32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"};
+    public static String [] Rmin = {"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26",
+            "27","28","29","30", "31", "32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56",
+            "57","58","59","60"};
 
     // Unit Hints
     public static int[] Unith1 = {R.drawable.h4,R.drawable.h5,R.drawable.h6,R.drawable.h7,R.drawable.h8,R.drawable.h9,R.drawable.h10,R.drawable.h11,R.drawable.h12};
@@ -37,7 +39,8 @@ public abstract class Registre {
             R.drawable.exo71,R.drawable.exo78,R.drawable.exo81};
 
     public static int[] Unit3 =  {R.drawable.exo2,R.drawable.exo4,R.drawable.exo8,R.drawable.exo18,R.drawable.exo20,R.drawable.exo21,R.drawable.exo24,R.drawable.exo28,
-            R.drawable.exo32,R.drawable.exo36,R.drawable.exo40,R.drawable.exo45,R.drawable.exo47,R.drawable.exo50,R.drawable.exo58,R.drawable.exo76,R.drawable.exo80,R.drawable.exo82};
+            R.drawable.exo32,R.drawable.exo36,R.drawable.exo40,R.drawable.exo45,R.drawable.exo47,R.drawable.exo50,R.drawable.exo58,R.drawable.exo76,R.drawable.exo80,
+            R.drawable.exo82};
 
     public static int[] Unit4 = {R.drawable.exo1,R.drawable.exo5,R.drawable.exo9,R.drawable.exo14,R.drawable.exo16,R.drawable.exo25,R.drawable.exo29,R.drawable.exo33,
             R.drawable.exo38,R.drawable.exo42,R.drawable.exo48,R.drawable.exo52,R.drawable.exo55,R.drawable.exo59,R.drawable.exo63,R.drawable.exo67,R.drawable.exo83};

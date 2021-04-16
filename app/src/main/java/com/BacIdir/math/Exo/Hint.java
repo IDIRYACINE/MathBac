@@ -13,36 +13,25 @@ import com.BacIdir.math.R;
 
 public class Hint extends Fragment {
 
-    private int[]data;
-    private View root ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
-        if ( savedInstanceState == null) {
-            data = Registre.Hints[Registre.Unit];
-            root = inflater.inflate(R.layout.fragment_hint,container,false);
-
-
-        }
-
-        return root;
-
+            return inflater.inflate(R.layout.fragment_hint, container, false);
     }
 
     @Override
-    public void onViewCreated(View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        if (savedInstanceState == null) {
-
-            RecyclerView ExoView = view.findViewById(R.id.grid_exo);
-            ExoAdapter adapter = new ExoAdapter(getActivity(), data);
-            ExoView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            ExoView.setAdapter(adapter);
-
-        }
+        Settings(view);
     }
 
+
+    private void Settings(View root){
+        int[] data = Registre.Hints[Registre.Unit];
+        ExoAdapter adapter = new ExoAdapter(getActivity(), data);
+        RecyclerView exoView = root.findViewById(R.id.grid_exo);
+        exoView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        exoView.setAdapter(adapter);
+    }
 }

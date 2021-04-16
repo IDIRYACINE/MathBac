@@ -13,6 +13,13 @@
     <!-- Content -->
     <string name="ExoMark">كيف تقيم نفسك ؟</string>
 
+    <!-- Units -->
+    <string name="Unit1">المتتاليات</string>
+    <string name="Unit2">الدوال</string>
+    <string name="Unit3">الاحتمالات</string>
+    <string name="Unit4">الاعداد المركبة</string>
+    <string name="Unit5">توقف</string>
+    <string name="Unit6">ملخص الوحدة</string>
 
     <!-- Font -->
     <string name="roboto_regular">sans-serif</string>

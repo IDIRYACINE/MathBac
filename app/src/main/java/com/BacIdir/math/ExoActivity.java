@@ -1,146 +1,119 @@
 package com.BacIdir.math;
 
-import android.graphics.Region;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
-import com.BacIdir.math.Controllers.ExoMark;
+import com.BacIdir.math.Controllers.AdMob;
 import com.BacIdir.math.Controllers.ExoTimer;
 import com.BacIdir.math.Data.Registre;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.BacIdir.math.Exo.ExoMark;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.shawnlin.numberpicker.NumberPicker;
 
 public class ExoActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
-    private NavController controller ;
-    private ExoTimer timer ;
-    private NumberPicker mins ;
-    private NumberPicker seconds ;
-    private InterstitialAd mInterstitialAd ;
-    public static boolean exo_started = false ;
-    public static boolean exo_hint = false ;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState == null){
-
             setContentView(R.layout.activity_exo);
-
-            NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.exo_host);
-            controller = host.getNavController();
-
-
-            BottomNavigationView bottomNavigationView = findViewById(R.id.exo_controls);
-            bottomNavigationView.setOnNavigationItemSelectedListener(this);
-
-            mins = findViewById(R.id.mins);
-            mins.setMinValue(1);
-            mins.setMaxValue(Registre.Lmin.length);
-            mins.setDisplayedValues(Registre.Lmin);
-            mins.setValue(1);
-
-            seconds = findViewById(R.id.seconds);
-            seconds.setScrollerEnabled(false);
-
-            mInterstitialAd = new InterstitialAd(this);
-            mInterstitialAd.setAdUnitId("ca-app-pub-7616920693631792/9303048879");
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-
-        }
-
-
-
-
     }
+
+    private Looper mainLooper ;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Setting();
+        Thread Background = new Thread(AdRequest);
+        Background.start();
+    }
+
+    private AdMob Ad ;
+    Runnable AdRequest = new Runnable() {
+        @Override
+        public void run() {
+            ExoTimer.ResetCounter(minutesCounter,secondsCounter);
+            Handler handler = new Handler(mainLooper);
+            Ad = new AdMob(context, handler);
+            Ad.LoadAd();
+        }};
 
     @Override
     public boolean onNavigationItemSelected( MenuItem Item) {
-
         switch (Item.getItemId()){
-
-            case R.id.Start : start_exo(Item);
+            case R.id.Start : StartExo(Item);
                 return true;
 
-            case R.id.Hint : exo_switch(Item);
+            case R.id.Hint : ExoHints(Item);
                 return true;
         }
-
-
         return false;
     }
 
-
-    private void start_exo(MenuItem Item){
-
-        if(!exo_started){
-
-            exo_started = true ;
-            Item.setIcon(R.drawable.ic_exo_stop);
-            Item.setTitle(R.string.Stop);
-            // get the value for count down from numpicker
-            String c = Registre.Lmin[mins.getValue()-1];
-            int count = Integer.parseInt(c) ;
-
-            //
-            timer = new ExoTimer(count,1000 ,mins,seconds);
-            mins.setMinValue(1);
-            mins.setMaxValue(Registre.Rmin.length);
-            mins.setDisplayedValues(Registre.Rmin);
-            mins.setValue(count);
-
-            timer.start();
-
-
-        }
-        else {
-            exo_started = false ;
-            Item.setIcon(R.drawable.ic_exo_start);
-            Item.setTitle(R.string.Start);
-
-            timer.cancel();
-
-            mins.setMinValue(1);
-            mins.setMaxValue(Registre.Lmin.length);
-            mins.setDisplayedValues(Registre.Lmin);
-            mins.setValue(1);
-            seconds.setValue(0);
-
-            ExoMark mark = new ExoMark(this,mInterstitialAd);
-            mark.show();
-
-        }
-
+    private NavController controller ;
+    private com.shawnlin.numberpicker.NumberPicker minutesCounter;
+    private NumberPicker secondsCounter;
+    private Activity context ;
+    private void Setting(){
+        context = this ;
+        mainLooper = getMainLooper();
+        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.exo_host);
+        controller = host.getNavController();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.exo_controls);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        minutesCounter = findViewById(R.id.mins);
+        secondsCounter = findViewById(R.id.seconds);
     }
 
-    private void exo_switch (MenuItem Item){
+        public static boolean ExoStarted = false ;
+        private void StartExo(MenuItem item){
+            if (!ExoStarted){
+                ExoStarted = true ;
+                item.setIcon(R.drawable.ic_exo_stop);
+                CreateCounter();
+                ExoTimer.SetUpCounter(minutesCounter);
+                CountDown.start();
+            }
+            else {
+                ExoStarted = false ;
+                item.setIcon(R.drawable.ic_exo_start);
+                CountDown.cancel();
+                ExoTimer.ResetCounter(minutesCounter,secondsCounter);
+                ExoMark mark = new ExoMark(this,Ad);
+                mark.show();
+        }
+    }
 
-        if(!exo_hint){
-            exo_hint = true ;
+    private boolean DisplayHints = false ;
+    private void ExoHints(MenuItem Item){
+        if(!DisplayHints){
+            DisplayHints = true ;
             Item.setIcon(R.drawable.ic_exo);
-            Item.setTitle(R.string.Exo);
-            controller.navigate(R.id.hintN,null,new  NavOptions.Builder().setPopUpTo(R.id.hintN,true).build());
-
-
+            controller.navigate(R.id.action_exoN_to_hintN);
         }
         else {
-            exo_hint = false ;
+            DisplayHints = false ;
             Item.setIcon(R.drawable.ic_hint);
-            Item.setTitle(R.string.Hint);
-            controller.navigate(R.id.exoN,null,new  NavOptions.Builder().setPopUpTo(R.id.exoN,true).build());
-
+            controller.navigate(R.id.action_hintN_to_exoN);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        DisplayHints = !DisplayHints;
+    }
+
+    private ExoTimer CountDown;
+    private void CreateCounter() {
+        String c = Registre.Lmin[minutesCounter.getValue()-1];
+        int Minute = Integer.parseInt(c) ;
+        CountDown = new ExoTimer(Minute,1000 , minutesCounter, secondsCounter);
 
     }
 

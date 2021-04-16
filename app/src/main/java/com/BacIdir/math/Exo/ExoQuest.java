@@ -7,24 +7,16 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import androidx.fragment.app.Fragment;
 import com.BacIdir.math.Controllers.QuestAdapter;
-import com.BacIdir.math.Controllers.UnitsAdpter;
 import com.BacIdir.math.Data.Registre;
 import com.BacIdir.math.R;
 
 public class ExoQuest extends Fragment {
 
-    private View root ;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
-        if ( savedInstanceState == null) {
-             root = inflater.inflate(R.layout.fragment_quest,container,false);
-
-        }
-
-        return root;
+        return  inflater.inflate(R.layout.fragment_quest,container,false);
 
     }
 
@@ -32,14 +24,11 @@ public class ExoQuest extends Fragment {
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        int nQuest = Registre.Units[Registre.Unit].length;
-        if (savedInstanceState == null) {
-
-
+            int nQuest = Registre.Units[Registre.Unit].length;
             GridView gridView = view.findViewById(R.id.grid_quest);
             QuestAdapter adpter = new QuestAdapter(getActivity(), nQuest, 3);
             gridView.setAdapter(adpter);
 
         }
-    }
+
 }
