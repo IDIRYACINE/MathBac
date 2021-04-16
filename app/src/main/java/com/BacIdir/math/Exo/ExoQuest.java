@@ -24,7 +24,7 @@ public class ExoQuest extends Fragment {
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-            int nQuest = Registre.Units[Registre.Unit].length;
+            int nQuest = Registre.Units[Registre.Unit].length ;
             GridView gridView = view.findViewById(R.id.grid_quest);
             QuestAdapter adpter = new QuestAdapter(getActivity(), nQuest, 3);
             gridView.setAdapter(adpter);

@@ -4,17 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
-import com.BacIdir.math.Data.Registre;
+import com.BacIdir.math.Controllers.UnitAdpter;
 import com.BacIdir.math.R;
 
-public class Units extends Fragment implements View.OnClickListener {
-
-
-
+public class Units extends Fragment  {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,28 +24,14 @@ public class Units extends Fragment implements View.OnClickListener {
         Settings(view);
     }
 
-    @Override
-    public void onClick(View view) { UnitNavigation(view); }
 
-    private void UnitNavigation (View view){
-        Registre.Unit = TagToInt(view);
-        if (Registre.Unit < 6 ){controller.navigate(R.id.exoQuest,null,new  NavOptions.Builder().setPopUpTo(R.id.exoQuest,true).build());}
-        else {controller.navigate(R.id.graphs,null,new  NavOptions.Builder().setPopUpTo(R.id.graphs,true).build());}
-    }
-
-    private NavController controller ;
     private void Settings (View root){
-        NavHostFragment host = (NavHostFragment) getParentFragment();
-        controller = host.getNavController();
-
-        int[] views = {R.id.unit_title1,R.id.unit_title2,R.id.unit_title3,R.id.unit_title4,R.id.unit_title5,R.id.unit_title6 ,
-                        R.id.unit_icon1,R.id.unit_icon2,R.id.unit_icon3,R.id.unit_icon4,R.id.unit_icon5,R.id.unit_icon6} ;
-        for (int view: views) { root.findViewById(view).setOnClickListener(this); }
-    }
-
-    private int TagToInt(View view){
-        String tag = (String) view.getTag();
-        return Integer.parseInt(tag);
+        NavHostFragment host = (NavHostFragment) getParentFragment() ;
+        NavController controller = host.getNavController();
+        String[] Units = {"الدوال", "المتتاليات ", "الاعداد المركبة ", "الهندسة في الفضاء","الاحتمالات","تقييمك"};
+        GridView gridView = root.findViewById(R.id.grid_units);
+        UnitAdpter adpter = new UnitAdpter(getActivity(),controller,Units,2 );
+        gridView.setAdapter(adpter);
     }
 
 }
