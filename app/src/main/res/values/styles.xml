@@ -7,11 +7,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="NumberPickerText">
+
+    <style name="NumberPicker">
         <item name="android:textSize">40sp</item>
         <item name="android:textColorPrimary">@color/colorPrimary</item>
         <item name="android:selectionDividerHeight">30dp</item>
-
     </style>
+
+    <style name="UnitButton" parent="android:Widget.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/selected_text_size</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
 
 </resources>

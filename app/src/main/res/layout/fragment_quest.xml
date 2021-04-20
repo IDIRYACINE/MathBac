@@ -5,13 +5,34 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/quest_bar"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+            android:layout_width="88dp"
+            android:layout_height="48dp" app:srcCompat="@drawable/ic_backs"
+            android:id="@+id/quest_icon" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/quest_bar" app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="@string/quest_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/quest_title"
+            android:textColor="@color/colorWhite" android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/quest_icon" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="@+id/quest_bar"/>
     <GridView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/grid_quest" android:layout_margin="30dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="30dp"
+            android:layout_height="640dp" android:id="@+id/grid_quest" android:layout_margin="30dp"
+            android:layout_marginTop="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="30dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="30dp" android:layout_marginRight="30dp"
             app:layout_constraintEnd_toEndOf="parent" android:numColumns="3" android:horizontalSpacing="10dp"
-            android:verticalSpacing="10dp"/>
+            android:verticalSpacing="10dp" app:layout_constraintTop_toBottomOf="@+id/quest_bar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

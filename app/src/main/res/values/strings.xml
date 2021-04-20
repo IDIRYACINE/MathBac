@@ -29,5 +29,8 @@
     <string name="roboto_medium">sans-serif-medium</string>
 
     <string name="number_picker_formatter">%02d</string>
+    <!--  Bar -->
+    <string name="graph_bar_title">تقييمات الوحدات</string>
+    <string name="quest_bar_title">التمرينات</string>
 
 </resources>

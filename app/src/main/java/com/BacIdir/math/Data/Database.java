@@ -4,10 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.widget.RatingBar;
 
 import java.io.File;
 
@@ -91,11 +89,21 @@ public class Database extends SQLiteOpenHelper {
         return cursor ;
     }
 
+    public void SaveMark(RatingBar markBar){
+        float rating = markBar.getRating();
+        ContentValues exoMark = new ContentValues();
+        exoMark.put("mark",rating);
+        boolean firstExoMark = UpdateData(T[Registre.currentUnit],exoMark,Registre.currentExo) == 0 ;
+        if (firstExoMark){
+            exoMark.put("exo",Registre.currentExo);
+            InsertData(Database.T[Registre.currentUnit],exoMark);
+        }
+        else {UpdateData(T[Registre.currentUnit],exoMark,Registre.currentExo);}
+    }
+
     public void SetGraphData(float[] Marks){
         int position = 0 ;
         float mark = 0;
-
-
         for (int i = 0 ; i < T.length ; i++){
             Cursor cursor = FetchData(T[i],new String[]{"mark"}) ;
             if (cursor.getCount()>0){
@@ -108,7 +116,6 @@ public class Database extends SQLiteOpenHelper {
                 position = 0;
                 mark = 0 ;
             }
-
         }
     }
 

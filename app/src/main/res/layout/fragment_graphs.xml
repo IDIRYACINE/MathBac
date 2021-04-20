@@ -5,12 +5,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <GridView
+    <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/grid_exo" android:layout_marginTop="100dp"
-            android:layout_marginBottom="100dp" android:numColumns="1" android:verticalSpacing="10dp"/>
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/graph_bar"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+            android:layout_width="88dp"
+            android:layout_height="48dp" app:srcCompat="@drawable/ic_backs"
+            android:id="@+id/graph_icon" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="@+id/graph_bar"/>
+    <TextView
+            android:text="@string/graph_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/graph_title"
+            android:textColor="@color/colorWhite" android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/graph_icon"
+            android:layout_marginStart="36dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.192" app:layout_constraintBottom_toBottomOf="@+id/graph_bar"/>
+    <GridView
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/grid_exo"
+            android:numColumns="1" android:verticalSpacing="10dp"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintTop_toBottomOf="@+id/graph_bar" android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="50dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

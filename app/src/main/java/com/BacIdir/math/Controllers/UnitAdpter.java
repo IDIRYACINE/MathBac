@@ -3,10 +3,8 @@ package com.BacIdir.math.Controllers;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import com.BacIdir.math.Data.Registre;
@@ -14,66 +12,40 @@ import com.BacIdir.math.R;
 
 import java.util.HashMap;
 
-public class UnitAdpter extends BaseAdapter implements View.OnClickListener{
+public class UnitAdpter implements View.OnClickListener{
 
     private final String[] objects ;
-    private final LayoutInflater inflater ;
-    private final int nColumns ;
     private final NavController controller ;
     private final NavOptions navOptions ;
-    public UnitAdpter(Context context ,NavController controller ,String[] objects ,int nColumns){
-        this.inflater = LayoutInflater.from(context);
+
+    public UnitAdpter(Context context ,NavController controller ,String[] objects ,View root){
         this.objects = objects ;
-        this.nColumns = nColumns ;
         this.controller = controller ;
         navOptions = new  NavOptions.Builder().setPopUpTo(R.id.exoQuest,true).build();
+        CreateUnits(LayoutInflater.from(context),root);
         SetUpDestinationTable();
     }
 
-    @Override
-    public int getCount() {
-        return objects.length;
+    private void CreateUnits(LayoutInflater inflater , View root){
+        LinearLayout container = root.findViewById(R.id.unit_layout);
+        for (int i = 0 ; i < objects.length ; i++) {
+            View unit = inflater.inflate(R.layout.blueprint_unit, null, false);
+            Button unitButton = unit.findViewById(R.id.unit_button);
+            unitButton.setText(objects[i]);
+            int UNIT_WIDTH = 600;
+            unitButton.getLayoutParams().width = UNIT_WIDTH;
+            unitButton.setTag(i);
+
+            unitButton.setOnClickListener(this);
+
+            container.addView(unit);
+        }
     }
-
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        int nRows = objects.length % nColumns == 0 ? objects.length /nColumns : (objects.length+1) / nColumns;
-        int height = (parent.getHeight() - 40 ) / nRows;
-
-        convertView = inflater.inflate(R.layout.blueprint_unit,parent,false);
-        convertView.getLayoutParams().height = height;
-        Integer pos = position ;
-        convertView.setTag(pos);
-        convertView.setOnClickListener(this);
-
-        //if (position == objects.length - 1){convertView.getLayoutParams().width = parent.getWidth();}
-
-        ImageView icon = convertView.findViewById(R.id.unit_icon);
-        TextView title = convertView.findViewById(R.id.unit_title);
-        icon.getLayoutParams().width = (parent.getWidth() - 10 ) / nColumns;
-        icon.getLayoutParams().height = height / 2;
-
-        title.setText(objects[position]);
-
-        return convertView;
-    }
-
 
     @Override
     public void onClick(View v) {
-        Registre.Unit = (int) v.getTag();
-        controller.navigate(TagToDestination(Registre.Unit),null,navOptions);
+        Registre.currentUnit = (int) v.getTag();
+        controller.navigate(TagToDestination(Registre.currentUnit),null,navOptions);
     }
 
     private HashMap<Integer,Integer> destinationTable ;

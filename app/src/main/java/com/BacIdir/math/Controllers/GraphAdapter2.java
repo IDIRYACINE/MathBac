@@ -42,14 +42,14 @@ public class GraphAdapter2 extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //nQuest % nColumns == 0 ? nQuest / nColumns : (nQuest + 1) / nColumns;
-
+        int height = (parent.getHeight() - 77 ) / 5;
         convertView = inflater.inflate(R.layout.blueprint_graph,parent,false);
-
+        convertView.getLayoutParams().height = height;
        TextView unit_title = convertView.findViewById(R.id.UnitTitle);
        RatingBar unit_rating = convertView.findViewById(R.id.UnitRating);
 
-        unit_title.setText(data[position]);
-        unit_rating.setRating(marks[position]);
+       unit_title.setText(data[position]);
+       unit_rating.setRating(marks[position]);
 
 
         return convertView;

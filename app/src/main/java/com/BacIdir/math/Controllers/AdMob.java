@@ -1,7 +1,6 @@
 package com.BacIdir.math.Controllers;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Handler;
 import androidx.annotation.NonNull;
 import com.google.android.gms.ads.*;
@@ -17,7 +16,7 @@ public class AdMob {
 
     private final Handler mHandler ;
     private final Activity main ;
-
+    private AdRequest adRequest ;
     public AdMob(Activity context , Handler handler) {
         mHandler = handler ;
         main = context ;
@@ -42,11 +41,10 @@ public class AdMob {
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
         MobileAds.setRequestConfiguration(configuration);
-        final AdRequest adRequest = new AdRequest.Builder().build();
 
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() { InterstitialAd.load(main, "ca-app-pub-3940256099942544/1033173712", adRequest, AdCallBack) ; }});
+        adRequest = new AdRequest.Builder().build();
+        int AD_REQUEST_DELAY = 2000;
+        mHandler.postDelayed(GetAd, AD_REQUEST_DELAY);
     }
 
     private InterstitialAd mInterstitialAd ;
@@ -60,6 +58,7 @@ public class AdMob {
         @Override
         public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
             mInterstitialAd = null ;
+
         }
 
     };
@@ -85,5 +84,8 @@ public class AdMob {
         if (mInterstitialAd!=null) { mInterstitialAd.show(main); }
     }
 
+    private final Runnable GetAd = new Runnable() {
+        @Override
+        public void run() { InterstitialAd.load(main, "ca-app-pub-3940256099942544/1033173712", adRequest, AdCallBack) ; }};
 
 }

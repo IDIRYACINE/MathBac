@@ -1,12 +1,12 @@
 package com.BacIdir.math.Controllers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.BacIdir.math.Data.Registre;
 import com.BacIdir.math.ExoActivity;
@@ -25,7 +25,6 @@ public class QuestAdapter extends BaseAdapter implements View.OnClickListener {
         this.inflater = LayoutInflater.from(context);
         this.nQuest = nQuest;
         this.nColumns = nColumns;
-
     }
 
     @Override
@@ -43,30 +42,33 @@ public class QuestAdapter extends BaseAdapter implements View.OnClickListener {
         return 0;
     }
 
+    @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //nQuest % nColumns == 0 ? nQuest / nColumns : (nQuest + 1) / nColumns;
-        int nRows = nQuest / nColumns ;
-
         convertView = inflater.inflate(R.layout.blueprint_quest, parent, false);
-        convertView.setOnClickListener(this);
-        TextView title = convertView.findViewById(R.id.quest_title);
+        TextView quest = convertView.findViewById(R.id.quest_title);
+        boolean exoUnlocked = position <= Registre.UnitsProgress[Registre.currentUnit] ;
+        if(exoUnlocked){quest.setOnClickListener(this);}
+        else {quest.setBackgroundColor(Registre.lockedQuestColor);}
+        quest.getLayoutParams().width = (parent.getWidth() - 10) / nColumns;
+        quest.getLayoutParams().height = (parent.getWidth() - 10) / nColumns;
+        quest.setText(Integer.toString(position));
+        quest.setTag(position);
 
-        title.getLayoutParams().width = (parent.getWidth() - 10) / nColumns;
-        title.getLayoutParams().height = (parent.getWidth() - 10) / nColumns;
-        title.setText(Integer.toString(position));
-        title.setTag(position);
-        title.setOnClickListener(this);
         return convertView;
     }
 
 
     @Override
     public void onClick(View v) {
-
-        Registre.Exo = (Integer) v.getTag()  ;
-
+        Registre.currentExo = (Integer) v.getTag()  ;
         Intent intent = new Intent(context, ExoActivity.class);
         context.startActivity(intent);
     }
+
+
+
+
+
+
 }

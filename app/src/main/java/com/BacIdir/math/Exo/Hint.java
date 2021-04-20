@@ -28,7 +28,7 @@ public class Hint extends Fragment {
 
 
     private void Settings(View root){
-        int[] data = Registre.Hints[Registre.Unit];
+        int[] data = Registre.Hints[Registre.currentUnit];
         ExoAdapter adapter = new ExoAdapter(getActivity(), data);
         RecyclerView exoView = root.findViewById(R.id.grid_exo);
         exoView.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -17,21 +17,29 @@ import com.shawnlin.numberpicker.NumberPicker;
 
 public class ExoActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
+    private Looper mainLooper ;
+    private ExoTimer CountDown;
+    private NavController controller ;
+    private NumberPicker minutesCounter;
+    private NumberPicker secondsCounter;
+    private Activity context ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_exo);
-    }
-
-    private Looper mainLooper ;
-    @Override
-    protected void onResume() {
-        super.onResume();
+        setContentView(R.layout.activity_exo);
         Setting();
         Thread Background = new Thread(AdRequest);
         Background.start();
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
 
     private AdMob Ad ;
     Runnable AdRequest = new Runnable() {
@@ -55,10 +63,6 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
         return false;
     }
 
-    private NavController controller ;
-    private com.shawnlin.numberpicker.NumberPicker minutesCounter;
-    private NumberPicker secondsCounter;
-    private Activity context ;
     private void Setting(){
         context = this ;
         mainLooper = getMainLooper();
@@ -78,14 +82,17 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
                 CreateCounter();
                 ExoTimer.SetUpCounter(minutesCounter);
                 CountDown.start();
+
             }
             else {
                 ExoStarted = false ;
                 item.setIcon(R.drawable.ic_exo_start);
-                CountDown.cancel();
-                ExoTimer.ResetCounter(minutesCounter,secondsCounter);
                 ExoMark mark = new ExoMark(this,Ad);
                 mark.show();
+                CountDown.cancel();
+                CountDown.DismissNotification();
+                ExoTimer.ResetCounter(minutesCounter,secondsCounter);
+
         }
     }
 
@@ -109,12 +116,10 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
         DisplayHints = !DisplayHints;
     }
 
-    private ExoTimer CountDown;
     private void CreateCounter() {
         String c = Registre.Lmin[minutesCounter.getValue()-1];
         int Minute = Integer.parseInt(c) ;
-        CountDown = new ExoTimer(Minute,1000 , minutesCounter, secondsCounter);
-
+        CountDown = new ExoTimer(Minute,1000 , minutesCounter, secondsCounter,this);
     }
 
 }

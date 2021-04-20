@@ -5,15 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
+import com.BacIdir.math.Controllers.BackBar;
 import com.BacIdir.math.Controllers.GraphAdapter2;
 import com.BacIdir.math.Data.Database;
 import com.BacIdir.math.R;
 
 public class Graphs extends Fragment {
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +47,10 @@ public class Graphs extends Fragment {
         adapter = new GraphAdapter2(getActivity(), dunit, Marks);
         GridView exoView = root.findViewById(R.id.grid_exo);
         exoView.setAdapter(adapter);
+
+        ImageView backButton = root.findViewById(R.id.graph_icon);
+        BackBar listener = new BackBar(getActivity());
+        backButton.setOnClickListener(listener);
     }
 
 

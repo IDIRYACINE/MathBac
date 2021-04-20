@@ -4,19 +4,14 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="wrap_content"
                                                    android:layout_height="wrap_content"
-                                                   android:background="@color/colorPrimary">
-
-    <ImageView
+                                                   android:id="@+id/unit_button_layout"
+                                                   android:layout_marginBottom="@dimen/unit_midSpace">
+    <Button
+            android:text="Button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_menu_edit"
-            android:id="@+id/unit_icon" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/unit_title"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/unit_icon" app:layout_constraintBottom_toBottomOf="parent"
-            android:textColor="@color/colorWhite" android:textSize="20sp"/>
+            android:layout_height="wrap_content" android:id="@+id/unit_button"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" style="@style/UnitButton"
+            android:layout_marginBottom="@dimen/unit_midSpace"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

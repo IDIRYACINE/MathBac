@@ -29,20 +29,6 @@
             app:itemIconSize="30dp" android:layout_alignParentBottom="true" android:layout_marginBottom="0dp"
             app:labelVisibilityMode="unlabeled">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
-    <TextView
-            android:text=":"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView"
-            android:textColor="@color/colorPrimary"
-            android:textSize="60sp"
-            app:layout_constraintBottom_toTopOf="@+id/exo_controls"
-            android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="@+id/exo_host"
-            app:layout_constraintVertical_bias="1.0" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_above="@+id/exo_controls" android:layout_marginBottom="-1dp"
-            android:layout_toStartOf="@+id/seconds" android:layout_marginRight="14dp" android:layout_marginEnd="14dp"
-            android:layout_toLeftOf="@+id/seconds" android:layout_toEndOf="@+id/mins"
-            android:layout_toRightOf="@+id/mins" android:layout_marginLeft="13dp" android:layout_marginStart="13dp"/>
     <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/mins"
             android:layout_width="193dp"
@@ -59,7 +45,7 @@
             app:np_textSize="@dimen/text_size"
             app:np_typeface="@string/roboto_light"
             app:np_value="3"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp" android:layout_alignParentStart="true" android:layout_marginLeft="0dp"
             android:layout_marginStart="0dp" android:layout_alignParentLeft="true"/>
@@ -81,7 +67,7 @@
             app:np_value="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView" android:fadingEdge="none"
+            android:fadingEdge="none"
             app:np_scrollerEnabled="false" android:layout_alignParentEnd="true" android:layout_alignParentRight="false"
             android:layout_marginRight="0dp" android:layout_marginEnd="2dp" android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"/>
