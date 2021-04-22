@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.BacIdir.math.Controllers.AdMob;
 import com.BacIdir.math.Controllers.ExoTimer;
 import com.BacIdir.math.Data.Registre;
+import com.BacIdir.math.Exo.Exo;
 import com.BacIdir.math.Exo.ExoMark;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.shawnlin.numberpicker.NumberPicker;
@@ -23,6 +24,10 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     private NumberPicker minutesCounter;
     private NumberPicker secondsCounter;
     private Activity context ;
+    public static boolean ExoStarted = false ;
+    private boolean DisplayHints = false ;
+    private boolean DisplaySolution = false ;
+    private Exo ex ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +60,13 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     public boolean onNavigationItemSelected( MenuItem Item) {
         switch (Item.getItemId()){
             case R.id.Start : StartExo(Item);
-                return true;
+            return true;
 
             case R.id.Hint : ExoHints(Item);
-                return true;
+            return true;
+
+            case R.id.Solve: ExoSolution(Item);
+            return true;
         }
         return false;
     }
@@ -72,9 +80,11 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         minutesCounter = findViewById(R.id.mins);
         secondsCounter = findViewById(R.id.seconds);
+
+        ex = (Exo) host.getChildFragmentManager().getFragments().get(0);
     }
 
-        public static boolean ExoStarted = false ;
+
         private void StartExo(MenuItem item){
             if (!ExoStarted){
                 ExoStarted = true ;
@@ -96,7 +106,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
         }
     }
 
-    private boolean DisplayHints = false ;
+
     private void ExoHints(MenuItem Item){
         if(!DisplayHints){
             DisplayHints = true ;
@@ -107,6 +117,19 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
             DisplayHints = false ;
             Item.setIcon(R.drawable.ic_hint);
             controller.navigate(R.id.action_hintN_to_exoN);
+        }
+    }
+
+    private void ExoSolution (MenuItem Item){
+        if (!DisplaySolution){
+            Item.setIcon(R.drawable.ic_exo);
+            ex.DisplaySolution();
+            DisplaySolution = true ;
+        }
+        else {
+            Item.setIcon(R.drawable.ic_hint);
+            ex.DisplayExo();
+            DisplaySolution = false ;
         }
     }
 

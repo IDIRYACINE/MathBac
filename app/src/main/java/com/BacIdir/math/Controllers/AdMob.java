@@ -9,9 +9,6 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class AdMob {
 
     private final Handler mHandler ;
@@ -36,11 +33,11 @@ public class AdMob {
     }
 
     public void LoadAd() {
-        //mInterstitialAd.setAdUnitId("ca-app-pub-7616920693631792/9303048879");
+        /*mInterstitialAd.setAdUnitId("ca-app-pub-7616920693631792/9303048879");
         List<String> testDeviceIds = Arrays.asList("F19072B8718F95EF9143056D67EBA41B");
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
-        MobileAds.setRequestConfiguration(configuration);
+        MobileAds.setRequestConfiguration(configuration);*/
 
         adRequest = new AdRequest.Builder().build();
         int AD_REQUEST_DELAY = 2000;
@@ -86,6 +83,6 @@ public class AdMob {
 
     private final Runnable GetAd = new Runnable() {
         @Override
-        public void run() { InterstitialAd.load(main, "ca-app-pub-3940256099942544/1033173712", adRequest, AdCallBack) ; }};
+        public void run() { InterstitialAd.load(main, "ca-app-pub-7616920693631792/9303048879", adRequest, AdCallBack) ; }};
 
 }

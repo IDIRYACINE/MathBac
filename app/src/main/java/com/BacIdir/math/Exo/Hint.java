@@ -33,5 +33,6 @@ public class Hint extends Fragment {
         RecyclerView exoView = root.findViewById(R.id.grid_exo);
         exoView.setLayoutManager(new LinearLayoutManager(getActivity()));
         exoView.setAdapter(adapter);
+
     }
 }

@@ -5,4 +5,6 @@
           android:icon="@drawable/ic_exo_start"/>
     <item android:id="@+id/Hint" app:showAsAction="always"
           android:icon="@drawable/ic_hint"/>
+    <item android:id="@+id/Solve" app:showAsAction="always"
+          android:icon="@drawable/ic_hint"/>
 </menu>

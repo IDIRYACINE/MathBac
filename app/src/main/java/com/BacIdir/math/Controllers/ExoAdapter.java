@@ -13,7 +13,7 @@ import com.BacIdir.math.R;
 public class ExoAdapter extends Adapter<ExoAdapter.ViewHolder>  {
 
     private final LayoutInflater inflater ;
-    private final int[] data ;
+    public int[] data ;
     private Context context ;
     public ExoAdapter(Context context ,int[] data) {
         this.inflater = LayoutInflater.from(context);
