@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import com.BacIdir.math.Controllers.AdMob;
 import com.BacIdir.math.Controllers.ExoTimer;
@@ -20,7 +19,6 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
 
     private Looper mainLooper ;
     private ExoTimer CountDown;
-    private NavController controller ;
     private NumberPicker minutesCounter;
     private NumberPicker secondsCounter;
     private Activity context ;
@@ -75,7 +73,6 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
         context = this ;
         mainLooper = getMainLooper();
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.exo_host);
-        controller = host.getNavController();
         BottomNavigationView bottomNavigationView = findViewById(R.id.exo_controls);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         minutesCounter = findViewById(R.id.mins);
@@ -102,7 +99,6 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
                 CountDown.cancel();
                 CountDown.DismissNotification();
                 ExoTimer.ResetCounter(minutesCounter,secondsCounter);
-
         }
     }
 
@@ -110,13 +106,14 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     private void ExoHints(MenuItem Item){
         if(!DisplayHints){
             DisplayHints = true ;
+            DisplaySolution = false ;
             Item.setIcon(R.drawable.ic_exo);
-            controller.navigate(R.id.action_exoN_to_hintN);
+            ex.DisplayHint();
         }
         else {
             DisplayHints = false ;
             Item.setIcon(R.drawable.ic_hint);
-            controller.navigate(R.id.action_hintN_to_exoN);
+            ex.DisplayExo();
         }
     }
 
@@ -125,6 +122,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
             Item.setIcon(R.drawable.ic_exo);
             ex.DisplaySolution();
             DisplaySolution = true ;
+            DisplayHints = false ;
         }
         else {
             Item.setIcon(R.drawable.ic_hint);
