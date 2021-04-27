@@ -4,19 +4,17 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-    <androidx.fragment.app.FragmentContainerView
-            android:name="androidx.navigation.fragment.NavHostFragment"
+    <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="608dp" app:navGraph="@navigation/exo_nav" app:defaultNavHost="true"
-            android:id="@+id/exo_host" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="67dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="608dp"
+            android:id="@+id/exo_host"
+            android:layout_marginBottom="67dp"
             android:layout_marginTop="0dp" android:layout_alignParentTop="true"
             android:layout_above="@+id/exo_controls" android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true" android:layout_marginRight="0dp" android:layout_marginEnd="0dp"
             android:layout_alignParentStart="true" android:layout_marginLeft="0dp" android:layout_marginStart="0dp"
             android:layout_alignParentLeft="true">
-    </androidx.fragment.app.FragmentContainerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

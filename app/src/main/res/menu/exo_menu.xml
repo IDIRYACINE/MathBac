@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <item android:id="@+id/Hint" app:showAsAction="ifRoom"
+          android:icon="@drawable/ic_hint" android:title="@string/hint"/>
     <item android:id="@+id/Start" app:showAsAction="always"
-          android:icon="@drawable/ic_exo_start"/>
-    <item android:id="@+id/Hint" app:showAsAction="always"
-          android:icon="@drawable/ic_hint"/>
+          android:icon="@drawable/ic_exo_start" android:title="@string/start"/>
     <item android:id="@+id/Solve" app:showAsAction="always"
-          android:icon="@drawable/ic_hint"/>
+          android:icon="@drawable/ic_exo" android:title="@string/solution"/>
 </menu>

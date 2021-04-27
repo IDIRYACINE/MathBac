@@ -35,12 +35,13 @@ public class AdMob {
     public void LoadAd() {
         /*mInterstitialAd.setAdUnitId("ca-app-pub-7616920693631792/9303048879");
         List<String> testDeviceIds = Arrays.asList("F19072B8718F95EF9143056D67EBA41B");
+        test ad ca-app-pub-3940256099942544/1033173712
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
         MobileAds.setRequestConfiguration(configuration);*/
 
         adRequest = new AdRequest.Builder().build();
-        int AD_REQUEST_DELAY = 2000;
+        int AD_REQUEST_DELAY = 3000;
         mHandler.postDelayed(GetAd, AD_REQUEST_DELAY);
     }
 

@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.RecyclerView;
 import com.BacIdir.math.Controllers.AdMob;
 import com.BacIdir.math.Controllers.ExoTimer;
 import com.BacIdir.math.Data.Registre;
@@ -31,23 +31,19 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exo);
-        Setting();
         Thread Background = new Thread(AdRequest);
         Background.start();
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
 
     }
 
+
+    
 
     private AdMob Ad ;
     Runnable AdRequest = new Runnable() {
         @Override
         public void run() {
+            Setting();
             ExoTimer.ResetCounter(minutesCounter,secondsCounter);
             Handler handler = new Handler(mainLooper);
             Ad = new AdMob(context, handler);
@@ -60,10 +56,10 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
             case R.id.Start : StartExo(Item);
             return true;
 
-            case R.id.Hint : ExoHints(Item);
+            case R.id.Hint : ExoHints();
             return true;
 
-            case R.id.Solve: ExoSolution(Item);
+            case R.id.Solve: ExoSolution();
             return true;
         }
         return false;
@@ -72,13 +68,12 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     private void Setting(){
         context = this ;
         mainLooper = getMainLooper();
-        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.exo_host);
         BottomNavigationView bottomNavigationView = findViewById(R.id.exo_controls);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         minutesCounter = findViewById(R.id.mins);
         secondsCounter = findViewById(R.id.seconds);
-
-        ex = (Exo) host.getChildFragmentManager().getFragments().get(0);
+        RecyclerView exoGrid = findViewById(R.id.exo_host);
+        ex = new Exo(this,exoGrid);
     }
 
 
@@ -94,7 +89,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
             else {
                 ExoStarted = false ;
                 item.setIcon(R.drawable.ic_exo_start);
-                ExoMark mark = new ExoMark(this,Ad);
+                ExoMark mark = new ExoMark(this);
                 mark.show();
                 CountDown.cancel();
                 CountDown.DismissNotification();
@@ -103,29 +98,26 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     }
 
 
-    private void ExoHints(MenuItem Item){
+    private void ExoHints(){
         if(!DisplayHints){
             DisplayHints = true ;
             DisplaySolution = false ;
-            Item.setIcon(R.drawable.ic_exo);
             ex.DisplayHint();
         }
         else {
             DisplayHints = false ;
-            Item.setIcon(R.drawable.ic_hint);
             ex.DisplayExo();
         }
     }
 
-    private void ExoSolution (MenuItem Item){
+    private void ExoSolution (){
         if (!DisplaySolution){
-            Item.setIcon(R.drawable.ic_exo);
             ex.DisplaySolution();
+            Ad.Display();
             DisplaySolution = true ;
             DisplayHints = false ;
         }
         else {
-            Item.setIcon(R.drawable.ic_hint);
             ex.DisplayExo();
             DisplaySolution = false ;
         }
@@ -134,7 +126,11 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        DisplayHints = !DisplayHints;
+        DisplayHints = false ;
+        DisplaySolution = false ;
+        ExoStarted = false ;
+        if (CountDown !=null) {CountDown.cancel();}
+
     }
 
     private void CreateCounter() {

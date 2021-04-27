@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
-import com.BacIdir.math.R;
 
 public class ExoAdapter extends Adapter<ExoAdapter.ViewHolder>  {
 
@@ -24,7 +23,8 @@ public class ExoAdapter extends Adapter<ExoAdapter.ViewHolder>  {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.blueprint_exo,parent,false);
+        ImageView view = new ImageView(context);
+        view.setAdjustViewBounds(true);
         return new ViewHolder(view);
     }
 
@@ -42,7 +42,7 @@ public class ExoAdapter extends Adapter<ExoAdapter.ViewHolder>  {
         ImageView exo_view ;
         ViewHolder(View itemView) {
             super(itemView);
-            exo_view = itemView.findViewById(R.id.exo_hint);
+            exo_view = (ImageView) itemView;
         }
     }
 

@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.BacIdir.math"
-        minSdkVersion 23
+        minSdkVersion 20
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.01"
 
 
     }
@@ -28,7 +28,7 @@ dependencies {
 
 
     implementation 'androidx.appcompat:appcompat:1.3.0-rc01'
-    implementation "androidx.core:core:1.6.0-alpha01"
+    implementation "androidx.core:core:1.6.0-alpha02"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation "androidx.navigation:navigation-fragment:2.3.5"
     implementation "androidx.navigation:navigation-ui:2.3.5"

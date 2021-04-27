@@ -3,4 +3,55 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent" android:orientation="vertical" android:gravity="center"
-              android:id="@+id/unit_layout"/>
+              android:id="@+id/unit_layout" android:background="@color/colorWhite">
+    <com.BacIdir.math.Customs.UnitButton
+            android:text="@string/Unit1"
+            android:layout_width="@dimen/l_unit_width"
+            android:layout_height="@dimen/l_unit_height" android:id="@+id/unit1_button"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" style="@style/UnitButton"
+            android:layout_marginBottom="@dimen/unit_midSpace" android:tag="0"/>
+    <com.BacIdir.math.Customs.UnitButton
+            android:text="@string/Unit2"
+            android:layout_width="@dimen/l_unit_width"
+            android:layout_height="@dimen/l_unit_height" android:id="@+id/unit2_button"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" style="@style/UnitButton"
+            android:layout_marginBottom="@dimen/unit_midSpace" android:tag="1"/>
+    <com.BacIdir.math.Customs.UnitButton
+            android:text="@string/Unit3"
+            android:layout_width="@dimen/l_unit_width"
+            android:layout_height="@dimen/l_unit_height" android:id="@+id/unit3_button"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" style="@style/UnitButton"
+            android:layout_marginBottom="@dimen/unit_midSpace" android:tag="2"/>
+    <com.BacIdir.math.Customs.UnitButton
+            android:text="@string/Unit4"
+            android:layout_width="@dimen/l_unit_width"
+            android:layout_height="@dimen/l_unit_height" android:id="@+id/unit4_button"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" style="@style/UnitButton"
+            android:layout_marginBottom="@dimen/unit_midSpace" android:tag="3"/>
+
+    <com.BacIdir.math.Customs.UnitButton
+            android:text="@string/Unit5"
+            android:layout_width="@dimen/l_unit_width"
+            android:layout_height="@dimen/l_unit_height" android:id="@+id/unit5_button"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" style="@style/UnitButton"
+            android:layout_marginBottom="@dimen/unit_midSpace" android:tag="4"/>
+
+    <com.BacIdir.math.Customs.UnitButton
+            android:text="@string/Unit6"
+            android:layout_width="@dimen/l_unit_width"
+            android:layout_height="@dimen/l_unit_height" android:id="@+id/unit6_button"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" style="@style/UnitButton"
+            android:layout_marginBottom="@dimen/unit_midSpace" android:tag="5"/>
+</LinearLayout>

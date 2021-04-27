@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.BacIdir.math.Controllers.BackBar;
 import com.BacIdir.math.Controllers.QuestAdapter;
 import com.BacIdir.math.Data.Registre;
@@ -25,10 +26,11 @@ public class ExoQuest extends Fragment {
             Settings(view);
         }
 
-    private GridView questGrid ;
+    private RecyclerView questGrid ;
     private void Settings(View root){
         int nQuest = Registre.Units[Registre.currentUnit].length ;
         questGrid = root.findViewById(R.id.grid_quest);
+        questGrid.setLayoutManager(new GridLayoutManager(getContext(),3));
         QuestAdapter adpter = new QuestAdapter(getActivity(), nQuest, 3);
         questGrid.setAdapter(adpter);
 
@@ -36,9 +38,13 @@ public class ExoQuest extends Fragment {
         BackBar listener = new BackBar(getActivity());
         backButton.setOnClickListener(listener);
         Registre.exoQuest =this;
+
     }
 
     public void UpdateQuest(int position){
-        questGrid.getChildAt(position).findViewById(R.id.quest_title).setBackgroundColor(Registre.unlockedQuestColor);
+        questGrid.getChildAt(position).setBackgroundColor(Registre.unlockedQuestColor);
     }
+
+
+
 }

@@ -16,10 +16,10 @@
     <!-- Units -->
     <string name="Unit1">المتتاليات</string>
     <string name="Unit2">الدوال</string>
-    <string name="Unit3">الاحتمالات</string>
-    <string name="Unit4">الاعداد المركبة</string>
-    <string name="Unit5">توقف</string>
-    <string name="Unit6">ملخص الوحدة</string>
+    <string name="Unit3">الاعداد المركبة</string>
+    <string name="Unit4">الهندسة في الفضاء</string>
+    <string name="Unit5">الاحتمالات</string>
+    <string name="Unit6">تقييمك</string>
 
     <!-- Font -->
     <string name="roboto_regular">sans-serif</string>
@@ -30,7 +30,10 @@
 
     <string name="number_picker_formatter">%02d</string>
     <!--  Bar -->
-    <string name="graph_bar_title">تقييمات الوحدات</string>
+    <string name="graph_bar_title">تقييم الوحدات</string>
     <string name="quest_bar_title">التمرينات</string>
+    <string name="solution">solution</string>
+    <string name="start">start</string>
+    <string name="hint">hint</string>
 
 </resources>

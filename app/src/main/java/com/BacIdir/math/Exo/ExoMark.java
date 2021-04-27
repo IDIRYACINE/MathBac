@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import com.BacIdir.math.Controllers.AdMob;
 import com.BacIdir.math.Data.Database;
 import com.BacIdir.math.Data.Registre;
 import com.BacIdir.math.R;
@@ -16,13 +15,10 @@ import com.BacIdir.math.R;
 public class ExoMark extends AlertDialog implements View.OnClickListener {
 
     private final Context activity ;
-    private final AdMob Ad;
 
-
-    public ExoMark(@NonNull Context context , AdMob Admob) {
+    public ExoMark(@NonNull Context context ) {
         super(context);
         this.activity = context ;
-        this.Ad = Admob;
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
@@ -38,7 +34,6 @@ public class ExoMark extends AlertDialog implements View.OnClickListener {
     public void onClick(View v) {
         SaveMark();
         UpdateUnitProgress();
-        Ad.Display();
         dismiss();
     }
 
@@ -60,7 +55,6 @@ public class ExoMark extends AlertDialog implements View.OnClickListener {
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt(Registre.UnitsProgressKeys[Registre.currentUnit],Registre.UnitsProgress[Registre.currentUnit]);
             editor.apply();
-
 
         }
     }
