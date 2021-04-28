@@ -17,16 +17,14 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.ViewHolder> 
 
     private final Context context;
     private final int nQuest;
-    private final int nColumns;
+    private final RelativeLayout.LayoutParams params ;
 
     public QuestAdapter(Context context, int nQuest , int nColumns) {
         this.context = context;
         this.nQuest = nQuest;
-        this.nColumns = nColumns;
+        params = new RelativeLayout.LayoutParams((Registre.SCREEN_WIDTH - 160) / nColumns,(Registre.SCREEN_WIDTH - 160) / nColumns);
+        params.setMargins(0,0,0,20);
     }
-
-
-
 
         /*convertView = inflater.inflate(R.layout.blueprint_quest, parent, false);
         TextView quest = convertView.findViewById(R.id.quest_title);
@@ -37,9 +35,6 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.ViewHolder> 
         quest.getLayoutParams().height = (parent.getWidth() - 10) / nColumns;
         quest.setText(Integer.toString(position));
         quest.setTag(position);*/
-
-
-
 
 
     @NonNull
@@ -53,10 +48,6 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams((600 - 10) / nColumns,(600 - 10) / nColumns);
-        params.setMargins(0,0,0,20);
-
         holder.quest.setLayoutParams(params);
         holder.quest.setText(Integer.toString(position));
         holder.quest.position = position ;

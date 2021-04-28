@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.DisplayMetrics;
 import androidx.appcompat.app.AppCompatActivity;
 import com.BacIdir.math.Controllers.AdMob;
 import com.BacIdir.math.Data.Registre;
@@ -46,14 +47,21 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("Unit3Progress",0);
             editor.putInt("Unit4Progress",0);
             editor.putInt("Unit5Progress",0);
-            editor.commit();
+            final DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
+            editor.putInt("ScreenWidth", displayMetrics.widthPixels);
+            editor.putInt("ScreenHeight", displayMetrics.heightPixels);
+            editor.apply();
         }
         Registre.sharedPreferences = settings ;
         LoadSharedPref(settings);
     }
 
     private void LoadSharedPref(SharedPreferences settings){
-        for(int i = 0 ; i<5 ;i++) { Registre.UnitsProgress[i] = settings.getInt( Registre.UnitsProgressKeys[i], 0); }
+        for(int i = 0 ; i<5 ;i++) { Registre.UnitsProgress[i] = settings.getInt( Registre.UnitsProgressKeys[i], 0);
+        Registre.SCREEN_WIDTH = settings.getInt("ScreenWidth",720);
+            Registre.SCREEN_HEIGHT = settings.getInt("ScreenHeight",720);
+
+        }
     }
 
     Runnable Ad = new Runnable() {

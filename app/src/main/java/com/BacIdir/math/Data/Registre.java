@@ -12,6 +12,9 @@ public abstract class Registre {
     public static int unlockedQuestColor ;
     public static SharedPreferences sharedPreferences ;
     public static ExoQuest exoQuest ;
+    public static int SCREEN_WIDTH ;
+    public static int SCREEN_HEIGHT ;
+
 
     // Counter select mode and countdown mode
     public static String [] Lmin = {"10","15","20","25","30","35","40","45","50","55","60"};

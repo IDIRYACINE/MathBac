@@ -14,8 +14,8 @@
     <string name="ExoMark">كيف تقيم نفسك ؟</string>
 
     <!-- Units -->
-    <string name="Unit1">المتتاليات</string>
-    <string name="Unit2">الدوال</string>
+    <string name="Unit1">الدوال</string>
+    <string name="Unit2">المتتاليات</string>
     <string name="Unit3">الاعداد المركبة</string>
     <string name="Unit4">الهندسة في الفضاء</string>
     <string name="Unit5">الاحتمالات</string>

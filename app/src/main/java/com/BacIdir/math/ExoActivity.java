@@ -3,7 +3,6 @@ package com.BacIdir.math;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +16,7 @@ import com.shawnlin.numberpicker.NumberPicker;
 
 public class ExoActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
-    private Looper mainLooper ;
+    private Handler handler ;
     private ExoTimer CountDown;
     private NumberPicker minutesCounter;
     private NumberPicker secondsCounter;
@@ -31,6 +30,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exo);
+        Setting();
         Thread Background = new Thread(AdRequest);
         Background.start();
 
@@ -43,9 +43,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
     Runnable AdRequest = new Runnable() {
         @Override
         public void run() {
-            Setting();
             ExoTimer.ResetCounter(minutesCounter,secondsCounter);
-            Handler handler = new Handler(mainLooper);
             Ad = new AdMob(context, handler);
             Ad.LoadAd();
         }};
@@ -67,7 +65,7 @@ public class ExoActivity extends AppCompatActivity implements BottomNavigationVi
 
     private void Setting(){
         context = this ;
-        mainLooper = getMainLooper();
+        handler = new Handler(getMainLooper());
         BottomNavigationView bottomNavigationView = findViewById(R.id.exo_controls);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         minutesCounter = findViewById(R.id.mins);
