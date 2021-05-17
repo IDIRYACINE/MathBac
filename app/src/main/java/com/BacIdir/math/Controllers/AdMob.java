@@ -14,6 +14,7 @@ public class AdMob {
     private final Handler mHandler ;
     private final Activity main ;
     private AdRequest adRequest ;
+
     public AdMob(Activity context , Handler handler) {
         mHandler = handler ;
         main = context ;

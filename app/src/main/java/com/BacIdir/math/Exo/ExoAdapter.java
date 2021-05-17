@@ -1,23 +1,21 @@
-package com.BacIdir.math.Controllers;
+package com.BacIdir.math.Exo;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 public class ExoAdapter extends Adapter<ExoAdapter.ViewHolder>  {
 
-    private final LayoutInflater inflater ;
     public int[] data ;
-    private Context context ;
+    private final Context context ;
     public ExoAdapter(Context context ,int[] data) {
-        this.inflater = LayoutInflater.from(context);
-        this.context = context ;
-        this.data = data;
+       this.context = context ;
+       this.data = data;
     }
 
     @NonNull

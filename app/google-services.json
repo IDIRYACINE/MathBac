@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "634703648687",
+    "project_id": "math-idir",
+    "storage_bucket": "math-idir.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634703648687:android:19ec786575fe3d2ab0015a",
+        "android_client_info": {
+          "package_name": "com.BacIdir.math"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634703648687-bhs4bt6874kt3a312cglb6pdui53c2d9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3prp6pUyChIHPjT3hJfUCUIEdJdUO0pU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634703648687-bhs4bt6874kt3a312cglb6pdui53c2d9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

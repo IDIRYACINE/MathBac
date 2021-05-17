@@ -1,0 +1,9 @@
+<com.BacIdir.math.Customs.UnitButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/unit_button"
+    style="@style/UnitButton"
+    android:layout_width="@dimen/l_unit_width"
+    android:layout_height="@dimen/l_unit_height"
+    android:layout_marginBottom="@dimen/unit_midSpace"
+    android:tag="0"
+    android:text="@string/Unit1" />

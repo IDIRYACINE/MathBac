@@ -1,4 +1,4 @@
-package com.BacIdir.math.Controllers;
+package com.BacIdir.math.Timer;
 
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
+
 import androidx.core.app.NotificationCompat;
+
 import com.BacIdir.math.Data.Registre;
 import com.BacIdir.math.ExoActivity;
 import com.BacIdir.math.R;
@@ -76,11 +78,8 @@ public class ExoTimer extends CountDownTimer {
     private void Alarm() throws PendingIntent.CanceledException {
         Intent wakeScreen  =  new Intent(activity, PostCountDown.class);
         PendingIntent timerEnd = PendingIntent.getBroadcast(activity, 0, wakeScreen, 0);
-       // timerEnd.send();
-         AlarmManager alarmManager = (AlarmManager)activity.getSystemService(Context.ALARM_SERVICE);
-       alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,  SystemClock.elapsedRealtime() + 5000, timerEnd);
-
-
+        AlarmManager alarmManager = (AlarmManager)activity.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,  SystemClock.elapsedRealtime() + 5000, timerEnd);
     }
 
     public static void SetUpCounter(NumberPicker minutesCounter) {
@@ -102,7 +101,6 @@ public class ExoTimer extends CountDownTimer {
     private void NotificationSettings (Context activity){
         String CHANNEL_ID = "TimerEnd";
         Intent wakeScreen  =  new Intent(activity, ExoActivity.class);
-       // wakeScreen.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         PendingIntent timerEnd = PendingIntent.getActivity(activity, 0, wakeScreen, PendingIntent.FLAG_CANCEL_CURRENT);
 
         notificationBuilder = new NotificationCompat.Builder(activity, CHANNEL_ID)
@@ -122,7 +120,6 @@ public class ExoTimer extends CountDownTimer {
         CharSequence CHANNEL_NAME = "ExoTimer";
         String CHANNEL_DESCRIPTION = "ExoTimer";
         notificationManager = activity.getSystemService(NotificationManager.class);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME,  NotificationManager.IMPORTANCE_DEFAULT);
             channel.setDescription(CHANNEL_DESCRIPTION);

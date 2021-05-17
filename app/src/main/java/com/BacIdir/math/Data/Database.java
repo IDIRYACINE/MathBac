@@ -29,26 +29,17 @@ public class Database extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         mContext = context ;
         DB_PATH =  context.getDatabasePath(DATABASE_NAME).toString();
-
-        // Create new Database if it doesnt exist
         if(!checkDatabase()){this.getWritableDatabase();}
-
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // needs to be changed
-
             for (String i : T){
             String SQL_CREATE_ENTRIES =
                     "CREATE TABLE "+ i+"(" +Column1+ " INTEGER," +Column3+ " FLOAT(1,1) )";
-
             db.execSQL(SQL_CREATE_ENTRIES);
-
         }
-
-
     }
 
 
@@ -101,7 +92,7 @@ public class Database extends SQLiteOpenHelper {
         else {UpdateData(T[Registre.currentUnit],exoMark,Registre.currentExo);}
     }
 
-    public void SetGraphData(float[] Marks){
+    public void GetUnitsData(float[] Marks) {
         int position = 0 ;
         float mark = 0;
         for (int i = 0 ; i < T.length ; i++){
@@ -118,6 +109,5 @@ public class Database extends SQLiteOpenHelper {
             }
         }
     }
-
 
 }

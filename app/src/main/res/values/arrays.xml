@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="unit1_exo_ids">
+        <item>@drawable/exo</item>
+        <item>@drawable/exo6</item>
+        <item>@drawable/exo10</item>
+        <item>@drawable/exo15</item>
+        <item>@drawable/exo19</item>
+        <item>@drawable/exo31</item>
+        <item>@drawable/exo35</item>
+        <item>@drawable/exo39</item>
+        <item>@drawable/exo43</item>
+        <item>@drawable/exo44</item>
+        <item>@drawable/exo49</item>
+        <item>@drawable/exo53</item>
+        <item>@drawable/exo56</item>
+        <item>@drawable/exo60</item>
+        <item>@drawable/exo64</item>
+        <item>@drawable/exo68</item>
+        <item>@drawable/exo72</item>
+        <item>@drawable/exo75</item>
+        <item>@drawable/exo77</item>
+    </integer-array>
+
+    <integer-array name="unit2_exo_ids">
+        <item>@drawable/exo3</item>
+        <item>@drawable/exo7</item>
+        <item>@drawable/exo11</item>
+        <item>@drawable/exo12</item>
+        <item>@drawable/exo13</item>
+        <item>@drawable/exo17</item>
+        <item>@drawable/exo22</item>
+        <item>@drawable/exo26</item>
+        <item>@drawable/exo30</item>
+        <item>@drawable/exo37</item>
+        <item>@drawable/exo41</item>
+        <item>@drawable/exo46</item>
+        <item>@drawable/exo51</item>
+        <item>@drawable/exo57</item>
+        <item>@drawable/exo61</item>
+        <item>@drawable/exo66</item>
+        <item>@drawable/exo69</item>
+        <item>@drawable/exo71</item>
+        <item>@drawable/exo78</item>
+        <item>@drawable/exo81</item>
+    </integer-array>
+
+    <integer-array name="unit4_exo_ids">
+        <item>@drawable/exo2</item>
+        <item>@drawable/exo4</item>
+        <item>@drawable/exo8</item>
+        <item>@drawable/exo18</item>
+        <item>@drawable/exo20</item>
+        <item>@drawable/exo24</item>
+        <item>@drawable/exo28</item>
+        <item>@drawable/exo32</item>
+        <item>@drawable/exo36</item>
+        <item>@drawable/exo40</item>
+        <item>@drawable/exo45</item>
+        <item>@drawable/exo47</item>
+        <item>@drawable/exo50</item>
+        <item>@drawable/exo58</item>
+        <item>@drawable/exo76</item>
+        <item>@drawable/exo42</item>
+        <item>@drawable/exo82</item>
+    </integer-array>
+
+    <integer-array name="unit3_exo_ids">
+        <item>@drawable/exo1</item>
+        <item>@drawable/exo5</item>
+        <item>@drawable/exo9</item>
+        <item>@drawable/exo14</item>
+        <item>@drawable/exo16</item>
+        <item>@drawable/exo25</item>
+        <item>@drawable/exo29</item>
+        <item>@drawable/exo33</item>
+        <item>@drawable/exo38</item>
+        <item>@drawable/exo80</item>
+        <item>@drawable/exo48</item>
+        <item>@drawable/exo52</item>
+        <item>@drawable/exo55</item>
+        <item>@drawable/exo59</item>
+        <item>@drawable/exo63</item>
+        <item>@drawable/exo67</item>
+        <item>@drawable/exo83</item>
+    </integer-array>
+
+    <integer-array name="unit5_exo_ids">
+        <item>@drawable/exo54</item>
+        <item>@drawable/exo62</item>
+        <item>@drawable/exo65</item>
+        <item>@drawable/exo70</item>
+        <item>@drawable/exo73</item>
+        <item>@drawable/exo74</item>
+        <item>@drawable/exo79</item>
+    </integer-array>
+
+    <integer-array name="unit1_exoHints_ids">
+        <item>@drawable/h4</item>
+        <item>@drawable/h5</item>
+        <item>@drawable/h6</item>
+        <item>@drawable/h7</item>
+        <item>@drawable/h8</item>
+        <item>@drawable/h9</item>
+        <item>@drawable/h10</item>
+        <item>@drawable/h11</item>
+        <item>@drawable/h12</item>
+        <item>@drawable/h13</item>
+    </integer-array>
+
+    <integer-array name="unit2_exoHints_ids">
+        <item>@drawable/h13</item>
+    </integer-array>
+
+    <integer-array name="unit3_exoHints_ids">
+        <item>@drawable/h30</item>
+        <item>@drawable/h31</item>
+        <item>@drawable/h32</item>
+        <item>@drawable/h33</item>
+        <item>@drawable/h34</item>
+        <item>@drawable/h35</item>
+        <item>@drawable/h36</item>
+        <item>@drawable/h37</item>
+        <item>@drawable/h38</item>
+        <item>@drawable/h39</item>
+        <item>@drawable/h40</item>
+        <item>@drawable/h41</item>
+        <item>@drawable/h42</item>
+    </integer-array>
+
+    <integer-array name="unit4_exoHints_ids">
+        <item>@drawable/h14</item>
+        <item>@drawable/h15</item>
+        <item>@drawable/h16</item>
+        <item>@drawable/h17</item>
+        <item>@drawable/h18</item>
+        <item>@drawable/h19</item>
+        <item>@drawable/h20</item>
+        <item>@drawable/h21</item>
+        <item>@drawable/h22</item>
+        <item>@drawable/h23</item>
+        <item>@drawable/h24</item>
+        <item>@drawable/h25</item>
+        <item>@drawable/h26</item>
+        <item>@drawable/h27</item>
+        <item>@drawable/h28</item>
+        <item>@drawable/h29</item>
+    </integer-array>
+
+    <integer-array name="unit5_exoHints_ids">
+        <item>@drawable/h1</item>
+        <item>@drawable/h2</item>
+        <item>@drawable/h3</item>
+    </integer-array>
+
+    <integer-array name="unit1_exoSol_ids">
+        <item>@drawable/s41</item>
+        <item>@drawable/s7</item>
+        <item>@drawable/s23</item>
+        <item>@drawable/s39</item>
+        <item>@drawable/s64</item>
+        <item>@drawable/s42</item>
+        <item>@drawable/s15</item>
+        <item>@drawable/s43</item>
+        <item>@drawable/s44</item>
+        <item>@drawable/s73</item>
+        <item>@drawable/s47</item>
+        <item>@drawable/s45</item>
+        <item>@drawable/s48</item>
+        <item>@drawable/s32</item>
+        <item>@drawable/s35</item>
+        <item>@drawable/s89</item>
+        <item>@drawable/s93</item>
+    </integer-array>
+
+    <integer-array name="unit2_exoSol_ids">
+        <item>@drawable/s49</item>
+        <item>@drawable/s9</item>
+        <item>@drawable/s21</item>
+        <item>@drawable/s37</item>
+        <item>@drawable/s25</item>
+        <item>@drawable/s86</item>
+        <item>@drawable/s62</item>
+        <item>@drawable/s2</item>
+        <item>@drawable/s12</item>
+        <item>@drawable/s66</item>
+        <item>@drawable/s71</item>
+        <item>@drawable/s26</item>
+        <item>@drawable/s33</item>
+        <item>@drawable/s31</item>
+        <item>@drawable/s28</item>
+        <item>@drawable/s21</item>
+        <item>@drawable/s94</item>
+        <item>@drawable/s87</item>
+        <item>@drawable/s34</item>
+    </integer-array>
+
+    <integer-array name="unit3_exoSol_ids">
+        <item>@drawable/s80</item>
+        <item>@drawable/s56</item>
+        <item>@drawable/s57</item>
+        <item>@drawable/s17</item>
+        <item>@drawable/s36</item>
+        <item>@drawable/s58</item>
+        <item>@drawable/s59</item>
+        <item>@drawable/s60</item>
+        <item>@drawable/s81</item>
+        <item>@drawable/s69</item>
+        <item>@drawable/s68</item>
+        <item>@drawable/s67</item>
+        <item>@drawable/s72</item>
+        <item>@drawable/s70</item>
+        <item>@drawable/s61</item>
+        <item>@drawable/s11</item>
+        <item>@drawable/s63</item>
+    </integer-array>
+
+    <integer-array name="unit4_exoSol_ids">
+        <item>@drawable/s50</item>
+        <item>@drawable/s8</item>
+        <item>@drawable/s16</item>
+        <item>@drawable/s38</item>
+        <item>@drawable/s40</item>
+        <item>@drawable/s51</item>
+        <item>@drawable/s3</item>
+        <item>@drawable/s82</item>
+        <item>@drawable/s88 </item>
+        <item>@drawable/s65</item>
+        <item>@drawable/s52</item>
+        <item>@drawable/s53</item>
+        <item>@drawable/s29</item>
+        <item>@drawable/s54</item>
+        <item>@drawable/s18</item>
+        <item>@drawable/s22</item>
+        <item>@drawable/s55</item>
+    </integer-array>
+
+    <integer-array name="unit5_exoSol_ids">
+        <item>@drawable/s30</item>
+        <item>@drawable/s75</item>
+        <item>@drawable/s92</item>
+        <item>@drawable/s4</item>
+        <item>@drawable/s74</item>
+        <item>@drawable/s1</item>
+        <item>@drawable/s27</item>
+    </integer-array>
+</resources>

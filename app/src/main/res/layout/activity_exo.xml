@@ -4,17 +4,21 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="608dp"
-            android:id="@+id/exo_host"
-            android:layout_marginBottom="67dp"
-            android:layout_marginTop="0dp" android:layout_alignParentTop="true"
-            android:layout_above="@+id/exo_controls" android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" android:layout_marginRight="0dp" android:layout_marginEnd="0dp"
-            android:layout_alignParentStart="true" android:layout_marginLeft="0dp" android:layout_marginStart="0dp"
-            android:layout_alignParentLeft="true">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:id="@+id/exo_host"
+        android:layout_width="match_parent"
+        android:layout_height="608dp"
+        android:layout_above="@+id/exo_controls"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="67dp" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,49 +30,76 @@
             app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"
             app:itemIconSize="30dp" android:layout_alignParentBottom="true" android:layout_marginBottom="0dp"
             app:labelVisibilityMode="unlabeled">
+
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
     <com.shawnlin.numberpicker.NumberPicker
-            android:id="@+id/mins"
-            android:layout_width="193dp"
-            android:layout_height="wrap_content"
-            app:np_width="70dp"
-            app:np_height="180dp"
-            app:np_dividerColor="@color/colorPrimary"
-            app:np_formatter="@string/number_picker_formatter"
-            app:np_max="59"
-            app:np_min="0"
-            app:np_selectedTextColor="@color/colorPrimary"
-            app:np_selectedTextSize="@dimen/selected_text_size"
-            app:np_textColor="@color/colorPrimary"
-            app:np_textSize="@dimen/text_size"
-            app:np_typeface="@string/roboto_light"
-            app:np_value="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp" android:layout_alignParentStart="true" android:layout_marginLeft="0dp"
-            android:layout_marginStart="0dp" android:layout_alignParentLeft="true"/>
+        android:id="@+id/mins"
+        android:layout_width="@dimen/exoCounter_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:np_dividerColor="@color/colorPrimary"
+        app:np_formatter="@string/number_picker_formatter"
+        app:np_height="180dp"
+        app:np_max="59"
+        app:np_min="0"
+        app:np_selectedTextColor="@color/colorPrimary"
+        app:np_selectedTextSize="@dimen/selected_text_size"
+        app:np_textColor="@color/colorPrimary"
+        app:np_textSize="@dimen/text_size"
+        app:np_typeface="@string/roboto_light"
+        app:np_value="3"
+        app:np_width="70dp" >
+
+    </com.shawnlin.numberpicker.NumberPicker>
+
     <com.shawnlin.numberpicker.NumberPicker
-            android:id="@+id/seconds"
-            android:layout_width="@dimen/exoCounter_width"
-            android:layout_height="wrap_content"
-            app:np_width="70dp"
-            app:np_height="180dp"
-            app:np_dividerColor="@color/colorPrimary"
-            app:np_formatter="@string/number_picker_formatter"
-            app:np_max="59"
-            app:np_min="0"
-            app:np_selectedTextColor="@color/colorPrimary"
-            app:np_selectedTextSize="@dimen/selected_text_size"
-            app:np_textColor="@color/colorPrimary"
-            app:np_textSize="@dimen/text_size"
-            app:np_typeface="@string/roboto_light"
-            app:np_value="0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:fadingEdge="none"
-            app:np_scrollerEnabled="false" android:layout_alignParentEnd="true" android:layout_alignParentRight="false"
-            android:layout_marginRight="0dp" android:layout_marginEnd="2dp" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp"/>
+        android:id="@+id/seconds"
+        android:layout_width="@dimen/exoCounter_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="0dp"
+        android:fadingEdge="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:np_dividerColor="@color/colorPrimary"
+        app:np_formatter="@string/number_picker_formatter"
+        app:np_height="180dp"
+        app:np_max="59"
+        app:np_min="0"
+        app:np_scrollerEnabled="false"
+        app:np_selectedTextColor="@color/colorPrimary"
+        app:np_selectedTextSize="@dimen/selected_text_size"
+        app:np_textColor="@color/colorPrimary"
+        app:np_textSize="@dimen/text_size"
+        app:np_typeface="@string/roboto_light"
+        app:np_value="0"
+        app:np_width="70dp" />
+
+    <ImageView
+        android:id="@+id/divider_top"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_above="@+id/exo_controls"
+        android:layout_marginBottom="44dp"
+        android:contentDescription="@android:string/yes"
+        app:srcCompat="@drawable/divider" />
+
+    <ImageView
+        android:id="@+id/divider_bot"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_above="@+id/exo_controls"
+        android:layout_marginBottom="-6dp"
+        android:contentDescription="@android:string/yes"
+        app:srcCompat="@drawable/divider" />
 
 
 </RelativeLayout>

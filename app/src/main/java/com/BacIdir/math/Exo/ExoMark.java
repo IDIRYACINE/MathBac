@@ -1,25 +1,27 @@
 package com.BacIdir.math.Exo;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RatingBar;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import com.BacIdir.math.Data.Database;
+
+import com.BacIdir.math.Data.IUnitsData;
 import com.BacIdir.math.Data.Registre;
 import com.BacIdir.math.R;
 
 public class ExoMark extends AlertDialog implements View.OnClickListener {
 
-    private final Context activity ;
+    private final Activity activity ;
+    private final Exo exo ;
 
-    public ExoMark(@NonNull Context context ) {
-        super(context);
-        this.activity = context ;
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+    public ExoMark(@NonNull Activity activity , Exo exo) {
+        super(activity);
+        this.activity = activity ;
+        this.exo = exo ;
     }
 
     @Override
@@ -32,31 +34,26 @@ public class ExoMark extends AlertDialog implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        SaveMark();
+        IUnitsData.SaveExoMark(activity,findViewById(R.id.exo_star));
         UpdateUnitProgress();
         dismiss();
+        exo.NextExo();
     }
 
-
-    private void SaveMark(){
-        Database db = new Database(activity);
-        db.Connect();
-        RatingBar markBar = findViewById(R.id.exo_star);
-        db.SaveMark(markBar);
-        db.Disconect();
-    }
     private void UpdateUnitProgress(){
         boolean onLatestExo = Registre.currentExo + 1 > Registre.UnitsProgress[Registre.currentUnit]  ;
         if(onLatestExo){
             Registre.UnitsProgress[Registre.currentUnit] = Registre.currentExo + 1 ;
-            ExoQuest exo = Registre.exoQuest ;
-            exo.UpdateQuest(Registre.currentExo + 1);
+            UpdateQuest();
             SharedPreferences settings = Registre.sharedPreferences;
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt(Registre.UnitsProgressKeys[Registre.currentUnit],Registre.UnitsProgress[Registre.currentUnit]);
             editor.apply();
-
         }
+    }
+
+    private void UpdateQuest(){
+        Registre.recyclerView.getChildAt(Registre.currentExo + 1).setBackgroundColor(Registre.unlockedQuestColor);
     }
 
 }

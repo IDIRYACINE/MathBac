@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" android:orientation="vertical"
-              android:background="@color/colorPrimary">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
     <TextView
-            android:text="@string/ExoMark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/exo_rate" android:gravity="center"
-            android:textColor="@color/colorWhite" android:textSize="@dimen/dialogue_text_size"
-            android:layout_gravity="center_horizontal"/>
+        android:id="@+id/exo_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/ExoMark"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dialogue_text_size" />
+
     <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/exo_star" android:numStars="5" android:rating="2.5"
-            android:layout_gravity="center_horizontal"/>
+        android:id="@+id/exo_star"
+        android:layout_width="@dimen/graph_rating_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:numStars="5"
+        android:rating="2.5" />
+
     <Button
-            android:text="@string/Submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/btn_submit" style="@style/Widget.AppCompat.Button"/>
+        android:id="@+id/btn_submit"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Submit" />
 </LinearLayout>

@@ -1,20 +1,22 @@
 package com.BacIdir.math.Data;
 
 import android.content.SharedPreferences;
-import com.BacIdir.math.Exo.ExoQuest;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.BacIdir.math.R;
 
 public abstract class Registre {
 
+    public static String [] unitsTitles = {"الدوال","المتتاليات","الاعداد المركبة","الهندسة في الفضاء","الاحتمالات","تقييمك"};
     public static int currentUnit = 0 ;
     public static int currentExo = 0;
     public static int lockedQuestColor ;
     public static int unlockedQuestColor ;
     public static SharedPreferences sharedPreferences ;
-    public static ExoQuest exoQuest ;
     public static int SCREEN_WIDTH ;
     public static int SCREEN_HEIGHT ;
-
+    public static RecyclerView recyclerView;
 
     // Counter select mode and countdown mode
     public static String [] Lmin = {"10","15","20","25","30","35","40","45","50","55","60"};
@@ -59,13 +61,38 @@ public abstract class Registre {
     public static int[] Units5 = {R.drawable.s30,R.drawable.s75,R.drawable.s92,R.drawable.s4,R.drawable.s74,R.drawable.s1,R.drawable.s27 };
 
 
-
     // Units
     public static int [][] Units = {Unit1,Unit2,Unit3,Unit4,Unit5};
     public static int [][] Hints = {Unith1,Unith2,Unith3,Unith4,Unith5};
     public static int [][] Solutions = {Units1,Units2,Units3,Units4,Units5};
-    public static int [] UnitsProgress =new int[5];
+    public static int [] UnitsProgress = new int[5];
     public static String [] UnitsProgressKeys = {"Unit1Progress","Unit2Progress","Unit3Progress","Unit4Progress","Unit5Progress"};
 
+/*
+    public static void LoadExos(Context context){
+        int[] Ressources = {R.array.unit1_exo_ids,R.array.unit2_exo_ids,R.array.unit3_exo_ids,R.array.unit4_exo_ids,
+                R.array.unit5_exo_ids};
+
+        for (int i = 0 ; i<Units.length; i++) {
+            Units[i]= (Array) context.getResources().obtainTypedArray(Ressources[i]);
+        }
+    }
+    public static void LoadExosHints(Context context){
+        int[] Ressources = {R.array.unit1_exoHints_ids,R.array.unit2_exoHints_ids,R.array.unit3_exoHints_ids,
+                R.array.unit4_exoHints_ids,R.array.unit5_exoHints_ids};
+
+        for (int i = 0 ; i<Hints.length; i++) {
+            Hints[i]=context.getResources().getIntArray(Ressources[i]);
+        }
+    }
+
+    public static void LoadExosSolution(Context context){
+        int[] Ressources = {R.array.unit1_exoSol_ids,R.array.unit2_exoSol_ids,R.array.unit3_exoSol_ids,
+                R.array.unit4_exoSol_ids,R.array.unit5_exoSol_ids};
+
+        for (int i = 0 ; i<Solutions.length; i++) {
+            Solutions[i]=context.getResources().getIntArray(Ressources[i]);
+        }
+    }*/
 
 }

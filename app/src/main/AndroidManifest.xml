@@ -31,7 +31,7 @@
         <activity android:name=".ExoActivity" android:launchMode="singleTop" >
         </activity>
 
-        <receiver  android:name=".Controllers.PostCountDown"/>
+        <receiver  android:name=".Timer.PostCountDown"/>
     </application>
 
 </manifest>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/graph_marginBot"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/unit_title"
+        android:layout_width="@dimen/graph_unit_width"
+        android:layout_height="@dimen/graph_height"
+        android:layout_marginStart="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="start|center_vertical"
+        android:text="@string/Unit5"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/unit_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/unit_rating"
+        android:layout_width="@dimen/graph_rating_width"
+        android:layout_height="@dimen/graph_height"
+        android:background="@color/colorPrimary"
+        android:isIndicator="true"
+        android:rating="0"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/unit_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

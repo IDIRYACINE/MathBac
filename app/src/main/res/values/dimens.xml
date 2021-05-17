@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="selected_text_size">35sp</dimen>
-    <dimen name="text_size">0sp</dimen>
+
+    <!---Quest Rating Dialog-->
     <dimen name="notification_title">14sp</dimen>
     <dimen name="notification_content">30sp</dimen>
     <dimen name="dialogue_text_size">20sp</dimen>
+
+    <!---Exo Activity-->
+    <dimen name="exoCounter_width">130dp</dimen>
+    <dimen name="exoCounter_height">180dp</dimen>
+    <dimen name="exoCounter_bottom_margin">50dp</dimen>
+
+    <!---Unit Fragment-->
     <dimen name="unit_width">120dp</dimen>
     <dimen name="unit_height">40dp</dimen>
     <dimen name="unit_text_size">20sp</dimen>
     <dimen name="unit_midSpace">20dp</dimen>
     <dimen name="unit_sideSpace">20dp</dimen>
-    <dimen name="exoCounter_width">175dp</dimen>
-    <dimen name="exoCounter_height">180dp</dimen>
-    <dimen name="exoCounter_bottom_margin">50dp</dimen>
 
+    <!---Graph Fragment-->
     <dimen name="graph_margin">120dp</dimen>
+    <dimen name="graph_marginTop">20dp</dimen>
+    <dimen name="graph_marginBot">20dp</dimen>
     <dimen name="graph_title_width">165dp</dimen>
-    <dimen name="graph_rating_width">238dp</dimen>
+    <dimen name="graph_rating_width">150dp</dimen>
     <dimen name="graph_height">60dp</dimen>
+    <dimen name="graph_unit_width">120dp</dimen>
 
+    <!--- Others -->
+    <dimen name="selected_text_size">35sp</dimen>
+    <dimen name="text_size">0sp</dimen>
     <dimen name="quest_text_size">40sp</dimen>
+
 
 
 
