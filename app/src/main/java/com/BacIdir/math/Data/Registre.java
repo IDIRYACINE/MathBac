@@ -68,31 +68,4 @@ public abstract class Registre {
     public static int [] UnitsProgress = new int[5];
     public static String [] UnitsProgressKeys = {"Unit1Progress","Unit2Progress","Unit3Progress","Unit4Progress","Unit5Progress"};
 
-/*
-    public static void LoadExos(Context context){
-        int[] Ressources = {R.array.unit1_exo_ids,R.array.unit2_exo_ids,R.array.unit3_exo_ids,R.array.unit4_exo_ids,
-                R.array.unit5_exo_ids};
-
-        for (int i = 0 ; i<Units.length; i++) {
-            Units[i]= (Array) context.getResources().obtainTypedArray(Ressources[i]);
-        }
-    }
-    public static void LoadExosHints(Context context){
-        int[] Ressources = {R.array.unit1_exoHints_ids,R.array.unit2_exoHints_ids,R.array.unit3_exoHints_ids,
-                R.array.unit4_exoHints_ids,R.array.unit5_exoHints_ids};
-
-        for (int i = 0 ; i<Hints.length; i++) {
-            Hints[i]=context.getResources().getIntArray(Ressources[i]);
-        }
-    }
-
-    public static void LoadExosSolution(Context context){
-        int[] Ressources = {R.array.unit1_exoSol_ids,R.array.unit2_exoSol_ids,R.array.unit3_exoSol_ids,
-                R.array.unit4_exoSol_ids,R.array.unit5_exoSol_ids};
-
-        for (int i = 0 ; i<Solutions.length; i++) {
-            Solutions[i]=context.getResources().getIntArray(Ressources[i]);
-        }
-    }*/
-
 }

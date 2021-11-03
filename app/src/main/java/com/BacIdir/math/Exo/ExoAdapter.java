@@ -43,9 +43,6 @@ public class ExoAdapter extends Adapter<ExoAdapter.ViewHolder>  {
             exo_view = (ImageView) itemView;
         }
     }
-
-
-
-    }
+}
 
 

@@ -16,13 +16,14 @@ android {
         applicationId "com.BacIdir.math"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 9
-        versionName "1.03"
+        versionCode 10
+        versionName "1.04"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

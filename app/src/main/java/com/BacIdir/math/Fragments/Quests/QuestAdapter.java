@@ -2,6 +2,7 @@ package com.BacIdir.math.Fragments.Quests;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,8 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.ViewHolder> 
         holder.quest.setOnClickListener(this);
         boolean exoUnlocked = position <= Registre.UnitsProgress[Registre.currentUnit] ;
         if(!exoUnlocked) {holder.quest.setBackgroundColor(Registre.lockedQuestColor);}
+        else {holder.quest.setBackgroundColor(Registre.unlockedQuestColor);}
+
     }
 
     @Override

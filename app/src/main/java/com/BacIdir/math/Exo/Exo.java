@@ -12,6 +12,7 @@ import com.BacIdir.math.Data.Registre;
 public class Exo {
     private int[] exos;
     private ExoAdapter adapter ;
+    private  RecyclerGesture itemTouchHelperCallback ;
     public boolean ExoStarted = false ;
     public boolean DisplayHints = false ;
     public boolean DisplaySolution = false ;
@@ -23,16 +24,18 @@ public class Exo {
     private void Settings(Context context , RecyclerView exoView){
         adapter = new ExoAdapter(context, exos);
         exoView.setAdapter(adapter);
+        itemTouchHelperCallback  = new RecyclerGesture(0, ItemTouchHelper.LEFT |ItemTouchHelper.RIGHT , this);
         DisplayExo();
-        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerGesture(0, ItemTouchHelper.LEFT |ItemTouchHelper.RIGHT , this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(exoView);
+
     }
 
     public void DisplaySolution(AdMob Ad){
         if (!DisplaySolution){
             exos = Registre.Solutions[Registre.currentUnit];
+            itemTouchHelperCallback.toggleSwipe(false);
             UpdateAdapterData();
-            //Ad.Display();
+            Ad.Display();
             DisplaySolution = true ;
             DisplayHints = false ;
         }
@@ -44,6 +47,7 @@ public class Exo {
 
     public void DisplayExo(){
         exos = Registre.Units[Registre.currentUnit];
+        itemTouchHelperCallback.toggleSwipe(true);
         UpdateAdapterData();
     }
 
@@ -52,6 +56,7 @@ public class Exo {
             DisplayHints = true ;
             DisplaySolution = false ;
             exos = Registre.Hints[Registre.currentUnit];
+            itemTouchHelperCallback.toggleSwipe(false);
             adapter.data = exos ;
             adapter.notifyDataSetChanged();
         }

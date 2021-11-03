@@ -53,7 +53,9 @@ public class ExoMark extends AlertDialog implements View.OnClickListener {
     }
 
     private void UpdateQuest(){
-        Registre.recyclerView.getChildAt(Registre.currentExo + 1).setBackgroundColor(Registre.unlockedQuestColor);
+        if (Registre.currentExo + 1 < Registre.Units[Registre.currentUnit].length) {
+            Registre.recyclerView.getAdapter().notifyItemChanged(Registre.currentExo +1);
+        }
     }
 
 }
