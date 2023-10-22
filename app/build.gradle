@@ -16,8 +16,8 @@ android {
         applicationId "com.BacIdir.math"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 10
-        versionName "1.04"
+        versionCode 11
+        versionName "1.05"
     }
 
     buildTypes {
