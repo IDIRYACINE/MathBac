@@ -4,7 +4,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     compileOptions {
@@ -16,7 +16,7 @@ android {
         applicationId "com.BacIdir.math"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 11
+        versionCode 15
         versionName "1.05"
     }
 
